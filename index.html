@@ -1,241 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Malla Curricular - Administración</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f3f9ff;
-      margin: 0;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      color: #2a4d7b;
-    }
-    .progress-bar {
-      width: 100%;
-      background: #dbe9f4;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    .progress {
-      height: 20px;
-      background: #6fb3e0;
-      width: 0%;
-      border-radius: 8px;
-      transition: width 0.4s ease;
-    }
-    .semestre {
-      background: #e8f1fc;
-      border: 2px solid #b3d4f7;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 15px 0;
-    }
-    .semestre h2 {
-      color: #1a3e6e;
-    }
-    .materia {
-      display: flex;
-      justify-content: space-between;
-      padding: 6px 12px;
-      margin: 6px 0;
-      border-radius: 6px;
-      background: #ffffff;
-      border: 1px solid #c7dcf2;
-      color: #333;
-      font-size: 15px;
-    }
-    .materia.locked {
-      background: #e2e8f0;
-      color: #888;
-      pointer-events: none;
-    }
-    .materia input[type="checkbox"] {
-      transform: scale(1.3);
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Malla Curricular UTS - Michell</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Malla Curricular - Administración</h1>
-  <div class="progress-bar">
-    <div id="progress" class="progress"></div>
-  </div>
-  <!-- Semestre 1 -->
-  <div class="semestre" id="semestre_1">
-    <h2>Semestre 1</h2>
-    <div class="materia"><label><input type="checkbox" data-code="FCS002"> Contabilidad general (4 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="FCS003"> Economía y empresa (4 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="FCS001"> Administración general (3 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="DCB046"> Matemáticas 1 (4 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="DHI014"> Procesos de lectura y escritura (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="DHI016"> Cultura física (1 crédito)</label></div>
-  </div>
+  <header>
+    <h1>Malla Curricular Interactiva - UTS</h1>
+    <div class="progress-bar"><div id="progress"></div></div>
+  </header>
 
-  <!-- Semestre 2 -->
-  <div class="semestre" id="semestre_2">
-    <h2>Semestre 2</h2>
-    <div class="materia"><label><input type="checkbox" data-code="FCS004"> Fundamentos de marketing (4 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="FCS010"> Legislación empresarial (2 créditos)</label></div>
-    <div class="materia locked" data-req="DCB046"><label><input type="checkbox" disabled data-code="DCB047"> Matemática 2 (4 créditos)</label></div>
-    <div class="materia locked" data-req="FCS003"><label><input type="checkbox" disabled data-code="TGE2039"> Micro-macro economía (4 créditos)</label></div>
-    <div class="materia locked" data-req="FCS002"><label><input type="checkbox" disabled data-code="TGE200"> Costos (3 créditos)</label></div>
-  </div>
+  <main id="semestres-container">
+    <!-- Aquí se cargarán los semestres y materias dinámicamente -->
+  </main>
 
-  <!-- Semestre 3 -->
-  <div class="semestre" id="semestre_3">
-    <h2>Semestre 3</h2>
-    <div class="materia"><label><input type="checkbox" data-code="DHO00A"> Optativa 1 (2 créditos)</label></div>
-    <div class="materia locked" data-req="FCS001"><label><input type="checkbox" disabled data-code="FCS006"> Procesos administrativos (4 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="DHI029"> Epistemología (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="TGE304"> Fundamentos de la creatividad e innovación (2 créditos)</label></div>
-    <div class="materia locked" data-req="TGE200"><label><input type="checkbox" disabled data-code="TGE300"> Fundamentos de presupuestos (3 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="TGE305"> Informática aplicada (2 créditos)</label></div>
-  </div>
-  <!-- Semestre 4 -->
-  <div class="semestre" id="semestre_4">
-    <h2>Semestre 4</h2>
-    <div class="materia locked" data-req="FCS006"><label><input type="checkbox" disabled data-code="FCS005"> Administración del talento humano (3 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="DDI009"> Inglés 1 (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="TGE00J"> Electiva de profundización 1 (4 créditos)</label></div>
-    <div class="materia locked" data-req="TGE304"><label><input type="checkbox" disabled data-code="TGE404"> Innovación en las organizaciones (2 créditos)</label></div>
-    <div class="materia locked" data-req="DCB047"><label><input type="checkbox" disabled data-code="FCS023"> Matemática financiera (3 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="DHO0B"> Optativa 2 (2 créditos)</label></div>
-  </div>
+  <footer>
+    <p>💼 Gestión Empresarial + Administración de Empresas - Michell</p>
+  </footer>
 
-  <!-- Semestre 5 -->
-  <div class="semestre" id="semestre_5">
-    <h2>Semestre 5</h2>
-    <div class="materia locked" data-req="FCS006"><label><input type="checkbox" disabled data-code="FCS009"> Administración de la producción (4 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="TGE00K"> Electiva de profundización 2 (4 créditos)</label></div>
-    <div class="materia locked" data-req="DDI009"><label><input type="checkbox" disabled data-code="DDI010"> Inglés 2 (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="DHI023"> Metodología de la investigación 1 (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="TGE500"> Responsabilidad social empresarial (2 créditos)</label></div>
-    <div class="materia locked" data-req="DCB046"><label><input type="checkbox" disabled data-code="DCB004"> Estadística (4 créditos)</label></div>
-  </div>
-
-  <!-- Semestre 6 -->
-  <div class="semestre" id="semestre_6">
-    <h2>Semestre 6</h2>
-    <div class="materia locked" data-req="FCS004"><label><input type="checkbox" disabled data-code="FCS012"> Administración comercial y de servicios (4 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="FCS008"> Formulación y evaluación de proyectos (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="TGE605"> Competitividad (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="TGE00L"> Electiva de profundización 3 (4 créditos)</label></div>
-    <div class="materia locked" data-req="TGE404"><label><input type="checkbox" disabled data-code="TGE604"> Laboratorio empresarial (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="DHI003"> Ética (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="FCS01"> Marketing internacional (2 créditos)</label></div>
-  </div>
-  <!-- Semestre 7 -->
-  <div class="semestre" id="semestre_7">
-    <h2>Semestre 7</h2>
-    <div class="materia"><label><input type="checkbox" data-code="DHE00C"> Electiva complementaria 3 (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="DCB028"> Álgebra matricial (4 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="DHI005"> Comunicación organizacional (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="FCS016"> Mercadeo estratégico (4 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="PAE101"> Propedéutica de la administración (3 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="PAE100"> Teoría y diseño organizacional (4 créditos)</label></div>
-  </div>
-
-  <!-- Semestre 8 -->
-  <div class="semestre" id="semestre_8">
-    <h2>Semestre 8</h2>
-    <div class="materia"><label><input type="checkbox" data-code="DHE00D"> Electiva complementaria 4 (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="PAE00R"> Electiva de profundización (4 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="PAE201"> Economía colombiana (3 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="DCB022"> Estadística inferencial (4 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="FCS015"> Programación lineal (4 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="PAE200"> Tendencias administrativas modernas (3 créditos)</label></div>
-  </div>
-
-  <!-- Semestre 9 -->
-  <div class="semestre" id="semestre_9">
-    <h2>Semestre 9</h2>
-    <div class="materia"><label><input type="checkbox" data-code="PAE301"> Administración de la calidad (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="DHI018"> Metodología para la elaboración de proyectos 2 (1 crédito)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="PAE302"> Casos y proyectos empresariales (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="PAE401"> Administración ambiental (3 créditos)</label></div>
-    <div class="materia locked" data-req="PAE101"><label><input type="checkbox" disabled data-code="PAE400"> Herramientas gerenciales de control (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="FCS017"> Investigación de operaciones (3 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="DHI006"> Pensamiento creativo (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="FCS019"> Planeación financiera (3 créditos)</label></div>
-  </div>
-
-  <!-- Semestre 10 -->
-  <div class="semestre" id="semestre_10">
-    <h2>Semestre 10</h2>
-    <div class="materia"><label><input type="checkbox" data-code="PAE402"> Desarrollo Organizacional (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="PAE403"> Administración de procesos (4 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="PAE00S"> Electiva de profundización (4 créditos)</label></div>
-    <div class="materia locked" data-req="PAE400"><label><input type="checkbox" disabled data-code="PAE500"> Herramientas gerenciales de gestión (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="FCS021"> Marketing internacional (2 créditos)</label></div>
-    <div class="materia"><label><input type="checkbox" data-code="PAE501"> Simulación administrativa y gerencial (2 créditos)</label></div>
-  </div>
-  <script>
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    const progressBar = document.getElementById('progress');
-
-    // Total aproximado de créditos (puedes ajustarlo)
-    const totalCreditos = 166;
-
-    // Créditos por materia
-    const creditos = {
-      FCS002: 4, FCS003: 4, FCS001: 3, DCB046: 4, DHI014: 2, DHI016: 1,
-      FCS004: 4, FCS010: 2, DCB047: 4, TGE2039: 4, TGE200: 3,
-      DHO00A: 2, FCS006: 4, DHI029: 2, TGE304: 2, TGE300: 3, TGE305: 2,
-      FCS005: 3, DDI009: 2, TGE00J: 4, TGE404: 2, FCS023: 3, DHO0B: 2,
-      FCS009: 4, TGE00K: 4, DDI010: 2, DHI023: 2, TGE500: 2, DCB004: 4,
-      FCS012: 4, FCS008: 2, TGE605: 2, TGE00L: 4, TGE604: 2, DHI003: 2, FCS01: 2,
-      DHE00C: 2, DCB028: 4, DHI005: 2, FCS016: 4, PAE101: 3, PAE100: 4,
-      DHE00D: 2, PAE00R: 4, PAE201: 3, DCB022: 4, FCS015: 4, PAE200: 3,
-      PAE301: 2, DHI018: 1, PAE302: 2, PAE401: 3, PAE400: 2, FCS017: 3,
-      DHI006: 2, FCS019: 3,
-      PAE402: 2, PAE403: 4, PAE00S: 4, PAE500: 2, FCS021: 2, PAE501: 2
-    };
-
-    // Actualiza barra de progreso
-    function updateProgress() {
-      let suma = 0;
-      checkboxes.forEach(cb => {
-        if (cb.checked) {
-          const cod = cb.dataset.code;
-          suma += creditos[cod] || 0;
-        }
-      });
-      let porcentaje = (suma / totalCreditos) * 100;
-      progressBar.style.width = porcentaje + "%";
-    }
-
-    // Revisa requisitos y desbloquea materias si aplica
-    function revisarRequisitos() {
-      document.querySelectorAll('.materia.locked').forEach(div => {
-        const req = div.dataset.req;
-        const reqCheckbox = document.querySelector(input[data-code="${req}"]);
-        const materiaCheckbox = div.querySelector('input[type="checkbox"]');
-
-        if (reqCheckbox && reqCheckbox.checked) {
-          div.classList.remove('locked');
-          materiaCheckbox.disabled = false;
-        } else {
-          materiaCheckbox.checked = false;
-          div.classList.add('locked');
-          materiaCheckbox.disabled = true;
-        }
-      });
-      updateProgress();
-    }
-
-    // Evento al marcar/desmarcar materias
-    checkboxes.forEach(cb => {
-      cb.addEventListener('change', () => {
-        revisarRequisitos();
-        updateProgress();
-      });
-    });
-
-    // Cargar lógica al inicio
-    revisarRequisitos();
-  </script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
