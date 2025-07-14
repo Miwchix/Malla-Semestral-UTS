@@ -1,0 +1,98 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fefcfb;
+  margin: 0;
+  padding: 0;
+  color: #444;
+}
+
+header {
+  background: #b2dfdb;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  color: #004d40;
+}
+
+.progress-bar {
+  width: 80%;
+  height: 10px;
+  background-color: #ccc;
+  margin: 10px auto;
+  border-radius: 5px;
+  overflow: hidden;
+}
+#progress {
+  height: 100%;
+  width: 0%;
+  background-color: #26a69a;
+  transition: width 0.5s ease-in-out;
+}
+
+main {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.semestre {
+  background: #e1f5fe;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 15px;
+  width: 280px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+.semestre:hover {
+  transform: scale(1.02);
+}
+.semestre h2 {
+  text-align: center;
+  color: #0277bd;
+}
+.materia {
+  background: #eceff1;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+  color: #757575;
+}
+.materia:hover {
+  background-color: #cfd8dc;
+}
+.materia.aprobada {
+  background-color: #a5d6a7;
+  color: #2e7d32;
+  text-decoration: line-through;
+}
+.materia.repetir {
+  background-color: #ef9a9a;
+  color: #c62828;
+}
+.materia.pendiente {
+  background-color: #fff59d;
+  color: #f9a825;
+}
+.materia.bloqueada {
+  background-color: #eeeeee;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+footer {
+  background: #b2dfdb;
+  text-align: center;
+  padding: 10px;
+  color: #004d40;
+  font-weight: bold;
+}
